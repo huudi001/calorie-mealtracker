@@ -1,0 +1,17 @@
+{
+  "name": "Mealtracker",
+  "authors": [
+    "khalid hassan <abuuanas30@hotmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
