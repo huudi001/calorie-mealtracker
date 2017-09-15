@@ -1,31 +1,18 @@
 import { Component } from '@angular/core';
+import { Meal } from './meal.model';
 
 @Component({
   selector: 'my-app',
   template: `
   <div class="container">
     <h1>My MEAL TRACKER</h1>
-    <div *ngFor="let currentMeal of meals">
-      <h3>{{ currentMeal.foodname }}</h3>
-      <button (click)="showDetails(currentMeal)">Edit</button>
-    </div>
-    <div *ngIf="selectedMeal">
-      <h1>Edit MEAL</h1>
-      <div>
-        <label>EDIT MEAL DESCRIPTION:</label>
-        <input [(ngModel)]="selectedMeal.details">
-      </div>
-      <div>
-        <label>EDIT MEAL CALORIERS:</label>
-        <input [(ngModel)]="selectedMeal.calories">
-        <br/>
-        <label>EDIT MEAL NAME:</label>
-        <input [(ngModel)]="selectedMeal.foodname">
-        
+    <meal-list
+      [childMealList]="masterMealList"
+      (clickSender)="showDetails($event)"
+     ></meal-list>
+    <edit-meal  [childSelectedMeal]="selectedMeal">
 
-        <button (click)="finishedEditing()">Done</button>
-      </div>
-    </div>
+     </edit-meal>
   </div>
   `
 })
@@ -44,9 +31,4 @@ export class AppComponent {
   finishedEditing() {
     this.selectedMeal = null;
   }
-}
-
-export class Meal {
-  public done: boolean = false;
-  constructor(public foodname: string, public calories: number,public details: string) {   }
 }

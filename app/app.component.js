@@ -9,13 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var meal_model_1 = require('./meal.model');
 var AppComponent = (function () {
     function AppComponent() {
         this.meals = [
-            new Meal("hamburger.", 500, "comes with cheese"),
-            new Meal("chicken.", 400, "comes with fries"),
-            new Meal("biriani.", 300, "comes with chicken"),
-            new Meal("fish.", 200, "comes with ugali")
+            new meal_model_1.Meal("hamburger.", 500, "comes with cheese"),
+            new meal_model_1.Meal("chicken.", 400, "comes with fries"),
+            new meal_model_1.Meal("biriani.", 300, "comes with chicken"),
+            new meal_model_1.Meal("fish.", 200, "comes with ugali")
         ];
         this.selectedMeal = null;
     }
@@ -28,21 +29,11 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  <div class=\"container\">\n    <h1>My MEAL TRACKER</h1>\n    <div *ngFor=\"let currentMeal of meals\">\n      <h3>{{ currentMeal.foodname }}</h3>\n      <button (click)=\"showDetails(currentMeal)\">Edit</button>\n    </div>\n    <div *ngIf=\"selectedMeal\">\n      <h1>Edit MEAL</h1>\n      <div>\n        <label>EDIT MEAL DESCRIPTION:</label>\n        <input [(ngModel)]=\"selectedMeal.details\">\n      </div>\n      <div>\n        <label>EDIT MEAL CALORIERS:</label>\n        <input [(ngModel)]=\"selectedMeal.calories\">\n        <br/>\n        <label>EDIT MEAL NAME:</label>\n        <input [(ngModel)]=\"selectedMeal.foodname\">\n        \n\n        <button (click)=\"finishedEditing()\">Done</button>\n      </div>\n    </div>\n  </div>\n  "
+            template: "\n  <div class=\"container\">\n    <h1>My MEAL TRACKER</h1>\n    <meal-list\n      [childMealList]=\"masterMealList\"\n      (clickSender)=\"showDetails($event)\"\n     ></meal-list>\n    <edit-meal  [childSelectedMeal]=\"selectedMeal\">\n\n     </edit-meal>\n  </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
-var Meal = (function () {
-    function Meal(foodname, calories, details) {
-        this.foodname = foodname;
-        this.calories = calories;
-        this.details = details;
-        this.done = false;
-    }
-    return Meal;
-}());
-exports.Meal = Meal;
 //# sourceMappingURL=app.component.js.map
