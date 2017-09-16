@@ -12,11 +12,11 @@ var core_1 = require('@angular/core');
 var meal_model_1 = require('./meal.model');
 var AppComponent = (function () {
     function AppComponent() {
-        this.meals = [
-            new meal_model_1.Meal("hamburger.", 500, "comes with cheese"),
-            new meal_model_1.Meal("chicken.", 400, "comes with fries"),
-            new meal_model_1.Meal("biriani.", 300, "comes with chicken"),
-            new meal_model_1.Meal("fish.", 200, "comes with ugali")
+        this.masterMealList = [
+            new meal_model_1.Meal("hamburger", 500, "served with fries"),
+            new meal_model_1.Meal("fish.", 300, "served with ugali"),
+            new meal_model_1.Meal("biriani.", 200, "served with chicken"),
+            new meal_model_1.Meal("beans.", 200, "mixed with maize")
         ];
         this.selectedMeal = null;
     }
@@ -29,7 +29,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  <div class=\"container\">\n    <h1>My MEAL TRACKER</h1>\n    <meal-list\n      [childMealList]=\"masterMealList\"\n      (clickSender)=\"showDetails($event)\"\n     ></meal-list>\n    <edit-meal  [childSelectedMeal]=\"selectedMeal\">\n\n     </edit-meal>\n  </div>\n  "
+            template: "\n  <div class=\"container\">\n    <h1>My MEAL TRACKING APP</h1>\n    <new-meal></new-meal\n    <meal-list\n      [childMealList]=\"MasterMealList\"\n      (clickSender)=\"showDetails($event)\"\n     ></meal-list>\n    <edit-meal\n      [childSelectedMeal]=\"selectedMeal\"\n    ></edit-meal>\n  </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

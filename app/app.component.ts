@@ -5,28 +5,29 @@ import { Meal } from './meal.model';
   selector: 'my-app',
   template: `
   <div class="container">
-    <h1>My MEAL TRACKER</h1>
+    <h1>My MEAL TRACKING APP</h1>
+    <new-meal></new-meal
     <meal-list
-      [childMealList]="masterMealList"
+      [childMealList]="MasterMealList"
       (clickSender)="showDetails($event)"
      ></meal-list>
-    <edit-meal  [childSelectedMeal]="selectedMeal">
-
-     </edit-meal>
+    <edit-meal
+      [childSelectedMeal]="selectedMeal"
+    ></edit-meal>
   </div>
   `
 })
 
 export class AppComponent {
-  public meals: Meal[] = [
-      new Meal("hamburger.", 500,"comes with cheese"),
-      new Meal("chicken.", 400,"comes with fries"),
-      new Meal("biriani.", 300,"comes with chicken" ),
-      new Meal("fish.", 200,"comes with ugali")
+  public masterMealList: Meal[] = [
+      new Meal("hamburger", 500, "served with fries"),
+      new Meal("fish.",300,"served with ugali"),
+      new Meal("biriani.", 200,"served with chicken"),
+      new Meal("beans.", 200,"mixed with maize")
   ];
   selectedMeal: Meal = null;
   showDetails(clickedMeal: Meal) {
-    this.selectedMeal= clickedMeal;
+    this.selectedMeal = clickedMeal;
   }
   finishedEditing() {
     this.selectedMeal = null;

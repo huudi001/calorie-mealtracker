@@ -12,15 +12,23 @@ var core_1 = require('@angular/core');
 var meal_model_1 = require('./meal.model');
 var EditMealComponent = (function () {
     function EditMealComponent() {
+        this.doneClickedSender = new core_1.EventEmitter();
     }
+    EditMealComponent.prototype.doneClicked = function () {
+        this.doneClickedSender.emit();
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', meal_model_1.Meal)
     ], EditMealComponent.prototype, "childSelectedMeal", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], EditMealComponent.prototype, "doneClickedSender", void 0);
     EditMealComponent = __decorate([
         core_1.Component({
             selector: 'edit-meal',
-            template: "\n    <div *ngIf=\"selectedMeal\">\n      <h1>Edit Task</h1>\n      <div>\n        <label>Enter MEAL CALORIES:</label>\n        <input [(ngModel)]=\"selectedMeal.calories\">\n      </div>\n      <div>\n        <label>Enter MEAL NAME:</label>\n        <input [(ngModel)]=\"selectedMeal.foodname\">\n        <button (click)=\"finishedEditing()\">Done</button>\n      </div>\n    </div>\n  "
+            template: "\n    <div *ngIf=\"childSelectedMeal\">\n      <h1>Edit Meal</h1>\n      <div>\n        <label>Enter Meal Description:</label>\n        <input [(ngModel)]=\"childSelectedMeal.details\">\n      </div>\n      <div>\n        <label>Enter Meal ID:</label>\n        <input [(ngModel)]=\"childSelectedMeal.id\">\n        <button (click)=\"doneClicked()\">Done</button>\n      </div>\n    </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], EditMealComponent);
