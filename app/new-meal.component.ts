@@ -13,7 +13,7 @@ import { Meal } from './meal.model';
       <label>Enter Meal ID:</label>
       <input #newId>
       <button (click)="
-        addClicked(newFoodName.value, newCalorie.value,newDetails.value,newId.value);
+        addClicked(newFoodName.value, newCalorie.value,newDetails.value);
         newDescription.value='';
         newId.value='';
         newCalorie='';
@@ -26,8 +26,8 @@ import { Meal } from './meal.model';
 
 export class NewMealComponent {
   @Output() newMealSender = new EventEmitter();
-  addClicked(foodname: string, calories: number,details : string, id: number) {
-    var newMealToAdd: Meal = new Meal(foodname,calories,details,id);
+  addClicked(foodname: string, calories: number,details : string) {
+    var newMealToAdd: Meal = new Meal(foodname,calories,details);
     this.newMealSender.emit(newMealToAdd);
   }
 }

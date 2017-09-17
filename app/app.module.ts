@@ -6,8 +6,7 @@ import { MealListComponent } from './meal-list.component';
 import { EditMealComponent } from './edit-meal.component';
 import { NewMealComponent } from './new-meal.component';
 import { CompletenesPipe } from './completenes.pipe';
-import {ShowMealComponent} from './show-meal.component';
-
+import {ShowMealComponent} from './show-meal.component'
 @NgModule({
   imports: [
     BrowserModule,
