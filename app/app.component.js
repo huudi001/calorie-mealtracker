@@ -26,10 +26,13 @@ var AppComponent = (function () {
     AppComponent.prototype.finishedEditing = function () {
         this.selectedMeal = null;
     };
+    AppComponent.prototype.addMeal = function (newMealFromChild) {
+        this.masterMealList.push(newMealFromChild);
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  <div class=\"container\">\n    <h1>My MEAL TRACKING APP</h1>\n    <new-meal></new-meal\n    <meal-list\n      [childMealList]=\"MasterMealList\"\n      (clickSender)=\"showDetails($event)\"\n     ></meal-list>\n    <edit-meal\n      [childSelectedMeal]=\"selectedMeal\"\n    ></edit-meal>\n  </div>\n  "
+            template: "\n  <div class=\"container\">\n    <h1>My MEAL TRACKING APP</h1>\n    <new-meal\n    (newMealSender)=\"addMeal($event)\"\n    ></new-meal>\n    <meal-list\n        [childMealList]=\"masterMealList\"\n      (clickSender)=\"showDetails($event)\"\n     ></meal-list>\n    <edit-meal\n      [childSelectedMeal]=\"selectedMeal\"\n      (doneClickedSender)=\"finishedEditing()\"\n    ></edit-meal>\n  </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

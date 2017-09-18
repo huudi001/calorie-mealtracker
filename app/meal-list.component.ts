@@ -14,13 +14,22 @@ import { Meal } from './meal.model';
 
 </select>
 </div>
-    <div *ngFor="let currentMeal of childMealList | calories:selectedCalories; let i = index">
-    <h3>{{ currentMeal.foodname }}</h3>
+    <div *ngFor="let currentMeal of childMealList | calories:selectedCalories">
+
       <div>
       <p>{{currentMeal.details}}</p>
       <p>{{currentMeal.calories}}</p>
-      <p>{{crrentMeal.id}}</p>
+      <p>{{crrentMeal.foodname}}</p>
       <button class = "btn btn-info" (click)="editButtonHasBeenClicked(currentMeal)">Edit</button>
       </div>
       </div>
   `
+})
+
+export class MealListComponent {
+  @Input() childMealList: Meal;
+  @Output() doneClickedSender = new EventEmitter();
+  doneClicked() {
+    this.doneClickedSender.emit();
+  }
+}

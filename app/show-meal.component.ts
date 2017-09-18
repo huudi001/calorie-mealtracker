@@ -11,7 +11,7 @@ import { Meal } from './meal.model';
   </div>
   `
 })
-export class MealComponent {
+export class ShowMealComponent {
   @Input() meal: Meal;
   toggle(selectedCalories: number) {
     this.meal.calories = selectedCalories;
