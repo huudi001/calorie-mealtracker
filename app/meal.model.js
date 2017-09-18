@@ -1,10 +1,9 @@
 "use strict";
 var Meal = (function () {
-    function Meal(foodname, calories, details, id) {
+    function Meal(foodname, details, calories) {
         this.foodname = foodname;
-        this.calories = calories;
         this.details = details;
-        this.id = id;
+        this.calories = calories;
     }
     return Meal;
 }());

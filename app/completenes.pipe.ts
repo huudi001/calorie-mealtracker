@@ -3,7 +3,7 @@ import {Meal} from './meal.model';
 
 @Pipe({
   name: "calories",
-  pure: false
+  pure: true
 })
 export class CompletenesPipe implements PipeTransform {
   transform(input: Meal[], Calories) {

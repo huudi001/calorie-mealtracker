@@ -5,8 +5,8 @@ import { Meal } from './meal.model';
 @Component({
   selector: 'meal-list',
   template: `
-  <h1>Meals</h1>
-  <h1 >Edit</h1>
+  <h1 class =jumbotron>Meals</h1>
+  <h1 class= "jumbotron" >Edit</h1>
   <div>
   <select (change)="onChange($event.target.value)">
   <option value="lowCalorie">lowCalorie</option>
@@ -18,25 +18,24 @@ import { Meal } from './meal.model';
     <div *ngFor="let currentMeal of childMealList | calories:selectedCalories">
 
       <div>
+      <p>{{currentMeal.foodname}}</p>
       <p>{{currentMeal.details}}</p>
       <p>{{currentMeal.calories}}</p>
-      <p>{{currentMeal.foodname}}</p>
-      <p>{{currentMeal.id}}</p>
       <button class = "btn btn-info" (click)="editButtonHasBeenClicked(currentMeal)">Edit</button>
       </div>
-      </div>
+    </div>
   `
 })
 
 export class MealListComponent {
-  public selectCompleteness: string = "all";
+  public selectedCalories: string = "all";
   onChange(optionsFromMenu){
-    this.selectCompleteness = optionsFromMenu;
-    console.log(this.selectCompleteness);
+    this.selectedCalories = optionsFromMenu;
+    console.log(this.selectedCalories);
   }
   @Input() childMealList: Meal[];
-  @Output() doneClickedSender = new EventEmitter();
+  @Output() editClickedSender = new EventEmitter();
  editButtonHasBeenClicked(mealToEdit: Meal) {
-    this.doneClickedSender.emit(mealToEdit);
+    this.editClickedSender.emit(mealToEdit);
   }
 }

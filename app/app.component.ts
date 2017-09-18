@@ -10,8 +10,8 @@ import { Meal } from './meal.model';
     (newMealSender)="addMeal($event)"
     ></new-meal>
     <meal-list
-        [childMealList]="masterMealList"
-      (clickSender)="showDetails($event)"
+      [childMealList]="masterMealList"
+      (editClickedSender)="showDetails($event)"
      ></meal-list>
     <edit-meal
       [childSelectedMeal]="selectedMeal"
@@ -23,10 +23,10 @@ import { Meal } from './meal.model';
 
 export class AppComponent {
   public masterMealList: Meal[] = [
-      new Meal("hamburger", 800, "served with fries",0),
-      new Meal("fish.",300,"served with ugali",1),
-      new Meal("biriani.", 200,"served with chicken",2),
-      new Meal("beans.", 200,"mixed with maize",3)
+      new Meal("hamburger","served with fries", 800),
+      new Meal("fish.","served with ugali",300),
+      new Meal("biriani.","served with chicken", 200),
+      new Meal("beans.","mixed with maize",200)
   ];
   selectedMeal: Meal = null;
   showDetails(clickedMeal: Meal) {

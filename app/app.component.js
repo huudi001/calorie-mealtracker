@@ -13,10 +13,10 @@ var meal_model_1 = require('./meal.model');
 var AppComponent = (function () {
     function AppComponent() {
         this.masterMealList = [
-            new meal_model_1.Meal("hamburger", 800, "served with fries", 0),
-            new meal_model_1.Meal("fish.", 300, "served with ugali", 1),
-            new meal_model_1.Meal("biriani.", 200, "served with chicken", 2),
-            new meal_model_1.Meal("beans.", 200, "mixed with maize", 3)
+            new meal_model_1.Meal("hamburger", "served with fries", 800),
+            new meal_model_1.Meal("fish.", "served with ugali", 300),
+            new meal_model_1.Meal("biriani.", "served with chicken", 200),
+            new meal_model_1.Meal("beans.", "mixed with maize", 200)
         ];
         this.selectedMeal = null;
     }
@@ -32,7 +32,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  <div class=\"container\">\n    <h1>My MEAL TRACKING APP</h1>\n    <new-meal\n    (newMealSender)=\"addMeal($event)\"\n    ></new-meal>\n    <meal-list\n        [childMealList]=\"masterMealList\"\n      (clickSender)=\"showDetails($event)\"\n     ></meal-list>\n    <edit-meal\n      [childSelectedMeal]=\"selectedMeal\"\n      (doneClickedSender)=\"finishedEditing()\"\n    ></edit-meal>\n  </div>\n  "
+            template: "\n  <div class=\"container\">\n    <h1>My MEAL TRACKING APP</h1>\n    <new-meal\n    (newMealSender)=\"addMeal($event)\"\n    ></new-meal>\n    <meal-list\n      [childMealList]=\"masterMealList\"\n      (editClickedSender)=\"showDetails($event)\"\n     ></meal-list>\n    <edit-meal\n      [childSelectedMeal]=\"selectedMeal\"\n      (doneClickedSender)=\"finishedEditing()\"\n    ></edit-meal>\n  </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
