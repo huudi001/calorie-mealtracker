@@ -23,10 +23,10 @@ import { Meal } from './meal.model';
 
 export class AppComponent {
   public masterMealList: Meal[] = [
-      new Meal("hamburger", 500, "served with fries"),
-      new Meal("fish.",300,"served with ugali"),
-      new Meal("biriani.", 200,"served with chicken"),
-      new Meal("beans.", 200,"mixed with maize")
+      new Meal("hamburger", 800, "served with fries",0),
+      new Meal("fish.",300,"served with ugali",1),
+      new Meal("biriani.", 200,"served with chicken",2),
+      new Meal("beans.", 200,"mixed with maize",3)
   ];
   selectedMeal: Meal = null;
   showDetails(clickedMeal: Meal) {

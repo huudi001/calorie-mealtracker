@@ -13,10 +13,10 @@ var meal_model_1 = require('./meal.model');
 var AppComponent = (function () {
     function AppComponent() {
         this.masterMealList = [
-            new meal_model_1.Meal("hamburger", 500, "served with fries"),
-            new meal_model_1.Meal("fish.", 300, "served with ugali"),
-            new meal_model_1.Meal("biriani.", 200, "served with chicken"),
-            new meal_model_1.Meal("beans.", 200, "mixed with maize")
+            new meal_model_1.Meal("hamburger", 800, "served with fries", 0),
+            new meal_model_1.Meal("fish.", 300, "served with ugali", 1),
+            new meal_model_1.Meal("biriani.", 200, "served with chicken", 2),
+            new meal_model_1.Meal("beans.", 200, "mixed with maize", 3)
         ];
         this.selectedMeal = null;
     }

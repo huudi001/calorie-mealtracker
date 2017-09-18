@@ -28,7 +28,7 @@ var EditMealComponent = (function () {
     EditMealComponent = __decorate([
         core_1.Component({
             selector: 'edit-meal',
-            template: "\n    <div *ngIf=\"childSelectedMeal\">\n      <h1>Edit Meal</h1>\n      <div>\n        <label>Enter Meal Description:</label>\n        <input [(ngModel)]=\"childSelectedMeal.details\">\n      </div>\n      <div>\n        <label>Enter Meal ID:</label>\n        <input [(ngModel)]=\"childSelectedMeal.foodname\">\n        <button (click)=\"doneClicked()\">Done</button>\n      </div>\n    </div>\n  "
+            template: "\n    <div *ngIf=\"childSelectedMeal\">\n      <h1>Edit Meal</h1>\n      <div>\n        <label>Enter Meal Description:</label>\n        <input [(ngModel)]=\"childSelectedMeal.details\">\n      </div>\n      <div>\n        <label>Enter Meal ID:</label>\n        <input [(ngModel)]=\"childSelectedMeal.id\">\n        <button (click)=\"doneClicked()\">Done</button>\n      </div>\n    </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], EditMealComponent);

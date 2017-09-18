@@ -11,6 +11,7 @@ import { Meal } from './meal.model';
   <select (change)="onChange($event.target.value)">
   <option value="lowCalorie">lowCalorie</option>
   <option value="highCalorie">HighCalorie</option>
+  <option value="all">show all</option>
 
 </select>
 </div>
@@ -19,7 +20,8 @@ import { Meal } from './meal.model';
       <div>
       <p>{{currentMeal.details}}</p>
       <p>{{currentMeal.calories}}</p>
-      <p>{{crrentMeal.foodname}}</p>
+      <p>{{currentMeal.foodname}}</p>
+      <p>{{currentMeal.id}}</p>
       <button class = "btn btn-info" (click)="editButtonHasBeenClicked(currentMeal)">Edit</button>
       </div>
       </div>
@@ -27,9 +29,14 @@ import { Meal } from './meal.model';
 })
 
 export class MealListComponent {
-  @Input() childMealList: Meal;
+  public selectCompleteness: string = "all";
+  onChange(optionsFromMenu){
+    this.selectCompleteness = optionsFromMenu;
+    console.log(this.selectCompleteness);
+  }
+  @Input() childMealList: Meal[];
   @Output() doneClickedSender = new EventEmitter();
-  doneClicked() {
-    this.doneClickedSender.emit();
+ editButtonHasBeenClicked(mealToEdit: Meal) {
+    this.doneClickedSender.emit(mealToEdit);
   }
 }
